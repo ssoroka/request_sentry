@@ -8,10 +8,15 @@ module RequestSentry
     end
   end
 
-  describe ParameterFormatValidator, "given a blank string" do
-    it "should be valid" do
+  describe ParameterFormatValidator, "empty values" do
+    it "empty string should be valid" do
       validator = ParameterFormatValidator.new(:number)
       validator.valid?('').should be_true
+    end
+
+    it "nil should be valid" do
+      validator = ParameterFormatValidator.new(:number)
+      validator.valid?(nil).should be_true
     end
   end
 
